@@ -1,0 +1,110 @@
+:root {
+  --bg: #111534;
+  --bg-soft: #1c2356;
+  --lavender: #c8b6ff;
+  --lavender-2: #e7dcff;
+  --gold: #f2cc8f;
+  --text: #f4f2ff;
+  --shadow: rgba(8, 10, 30, 0.45);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: "Inter", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(231, 220, 255, 0.24), transparent 25%),
+    radial-gradient(circle at 82% 14%, rgba(242, 204, 143, 0.2), transparent 22%),
+    linear-gradient(180deg, #0d1232, #171c48 50%, #0e1230);
+}
+
+.sky::before,
+.sky::after {
+  content: "✦ ✶ ✦ ✶ ✦ ✶ ✦";
+  position: fixed;
+  width: 100%;
+  color: rgba(255, 245, 214, 0.3);
+  text-align: center;
+  pointer-events: none;
+}
+.sky::before { top: 1.5rem; }
+.sky::after { bottom: 1.5rem; }
+
+.app {
+  width: min(1024px, 92vw);
+  margin: 1.2rem auto 3rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 1.2rem;
+}
+.hero__eyebrow { color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+.hero h1 { margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.3rem); }
+.hero__lead { color: var(--lavender-2); margin-top: 0.6rem; }
+
+.card-frame {
+  background: linear-gradient(145deg, rgba(30, 37, 84, 0.8), rgba(20, 26, 63, 0.88));
+  border: 1px solid rgba(231, 220, 255, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px var(--shadow);
+  padding: 1rem;
+}
+
+.draw-btn {
+  background: linear-gradient(120deg, #b79dfd, #ebddff);
+  color: #24234c;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+}
+
+.result { margin-top: 1rem; display: grid; gap: 1rem; align-items: start; }
+.result.hidden { display: none; }
+.result__image-wrap {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(242, 204, 143, 0.35);
+  border-radius: 14px;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+}
+.result__image { width: min(100%, 260px); aspect-ratio: 2 / 3; object-fit: cover; }
+.orientation { color: var(--gold); font-weight: 700; }
+.keywords { color: var(--lavender-2); }
+.meaning { line-height: 1.55; }
+
+.catalog__hint { margin-top: -0.2rem; color: var(--lavender-2); }
+.card-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+.card-item {
+  border: 1px solid rgba(242, 204, 143, 0.25);
+  border-radius: 12px;
+  background: rgba(15, 18, 46, 0.75);
+  padding: 0.45rem;
+}
+.card-item__img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.card-item__name { margin: 0.45rem 0 0.1rem; font-size: 0.85rem; }
+
+@media (min-width: 760px) {
+  .result { grid-template-columns: 280px 1fr; }
+}
