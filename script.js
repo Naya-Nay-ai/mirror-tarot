@@ -8,7 +8,7 @@ const cardMeaning = document.getElementById('cardMeaning');
 const cardList = document.getElementById('cardList');
 const cardItemTemplate = document.getElementById('cardItemTemplate');
 
-const BACK_IMAGE_PATH = 'assets/back/card-back.png';
+const BACK_IMAGE_PATH = 'assets/back/back_mirror_tarot_adopted.png';
 let cards = [];
 
 function pickRandom(array) {
@@ -21,14 +21,14 @@ function drawOneCard() {
   const card = pickRandom(cards);
   const isReversed = Math.random() < 0.5;
   const orientation = isReversed ? '逆位置 (Reversed)' : '正位置 (Upright)';
-  const meaning = isReversed ? card.meaningReversed : card.meaningUpright;
-  const keywords = isReversed ? card.keywordsReversed : card.keywordsUpright;
+  const meaning = isReversed ? card.reversed_meaning : card.upright_meaning;
+  const keywords = isReversed ? card.reversed_keywords : card.upright_keywords;
 
   cardImage.src = card.image;
-  cardImage.alt = `${card.name} - ${orientation}`;
+  cardImage.alt = `${card.name_en} - ${orientation}`;
   cardImage.style.transform = isReversed ? 'rotate(180deg)' : 'none';
 
-  cardName.textContent = card.name;
+  cardName.textContent = `${card.number} ${card.name_en} / ${card.name_ja}`;
   cardOrientation.textContent = orientation;
   cardKeywords.textContent = `Keywords: ${keywords.join(' / ')}`;
   cardMeaning.textContent = meaning;
@@ -42,12 +42,12 @@ function createCardListItem(card) {
   const name = node.querySelector('.card-item__name');
 
   image.src = card.image;
-  image.alt = card.name;
+  image.alt = card.name_en;
   image.onerror = () => {
     image.src = BACK_IMAGE_PATH;
-    image.alt = `${card.name} (back image fallback)`;
+    image.alt = `${card.name_en} (back image fallback)`;
   };
-  name.textContent = card.name;
+  name.textContent = `${card.number} ${card.name_en} / ${card.name_ja}`;
 
   return node;
 }
