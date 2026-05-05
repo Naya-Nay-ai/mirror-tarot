@@ -28,7 +28,7 @@ function drawOneCard() {
   cardImage.alt = `${card.name_en} - ${orientation}`;
   cardImage.style.transform = isReversed ? 'rotate(180deg)' : 'none';
 
-  cardName.textContent = `${card.number} ${card.name_en} / ${card.name_ja}`;
+  cardName.textContent = `${card.roman} ${card.name_en} / ${card.name_ja}`;
   cardOrientation.textContent = orientation;
   cardKeywords.textContent = `Keywords: ${keywords.join(' / ')}`;
   cardMeaning.textContent = meaning;
@@ -47,7 +47,7 @@ function createCardListItem(card) {
     image.src = BACK_IMAGE_PATH;
     image.alt = `${card.name_en} (back image fallback)`;
   };
-  name.textContent = `${card.number} ${card.name_en} / ${card.name_ja}`;
+  name.textContent = `${card.roman} ${card.name_en} / ${card.name_ja}`;
 
   return node;
 }
