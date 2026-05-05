@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naya & Nay's Mirror Tarot</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sky"></div>
+    <main class="app">
+      <header class="hero">
+        <p class="hero__eyebrow">☽ Mirror Oracle ✦</p>
+        <h1>Naya &amp; Nay's Mirror Tarot</h1>
+        <p class="hero__lead">
+          月の鏡に映る1枚を引いて、今日のメッセージを受け取ろう。
+        </p>
+      </header>
+
+      <section class="draw-panel card-frame">
+        <h2>One Card Draw</h2>
+        <button id="drawButton" class="draw-btn" type="button">カードを引く</button>
+
+        <article id="result" class="result hidden" aria-live="polite">
+          <div class="result__image-wrap">
+            <img id="cardImage" class="result__image" alt="" />
+          </div>
+          <div class="result__meta">
+            <h3 id="cardName"></h3>
+            <p id="cardOrientation" class="orientation"></p>
+            <p id="cardKeywords" class="keywords"></p>
+            <p id="cardMeaning" class="meaning"></p>
+          </div>
+        </article>
+      </section>
+
+      <section class="catalog card-frame">
+        <h2>Major Arcana</h2>
+        <p class="catalog__hint">22枚のカード一覧</p>
+        <ul id="cardList" class="card-grid"></ul>
+      </section>
+    </main>
+
+    <template id="cardItemTemplate">
+      <li class="card-item">
+        <img class="card-item__img" loading="lazy" alt="" />
+        <p class="card-item__name"></p>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
