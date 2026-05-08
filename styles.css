@@ -74,9 +74,21 @@ body {
     0 0 12px rgba(236, 173, 255, 0.25);
 }
 
-.hero__eyebrow { color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+.hero__eyebrow {
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+  font-family: "Aoboshi One", serif;
+  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
+}
 
-.hero__lead { color: var(--lavender-2); margin-top: 0.6rem; }
+.hero__lead {
+  color: var(--lavender-2);
+  margin-top: 0.6rem;
+  font-family: "Aoboshi One", serif;
+  letter-spacing: 0.02em;
+}
+
 
 .card-frame {
   background: linear-gradient(145deg, rgba(30, 37, 84, 0.8), rgba(20, 26, 63, 0.88));
