@@ -190,7 +190,13 @@ body {
   align-items: center;
   gap: 1rem;
 }
-.result { margin-top: 1rem; display: grid; gap: 1rem; align-items: start; }
+.result {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
 .result.hidden { display: none; }
 .result__image-wrap {
