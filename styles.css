@@ -308,6 +308,10 @@ body {
     max-width: 600px; 
   }
 }
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
 
 
 
