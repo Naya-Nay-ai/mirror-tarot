@@ -296,10 +296,16 @@ body {
   object-fit: cover;
 }
 
+.result__meta {
+  width: 100%;
+}
 
-  
 @media (min-width: 760px) {
-  .result {
+  .result__meta {
+    flex: 1;
+  }
+}
+
     flex-direction: row;
     align-items: flex-start;
   }
