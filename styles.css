@@ -190,7 +190,11 @@ body {
   align-items: center;
   gap: 1rem;
 }
-.result { margin-top: 1rem; display: grid; gap: 1rem; align-items: start; }
+.result {
+  margin-top: 1rem;
+  display: block;
+}
+
 .result.hidden { display: none; }
 .result__image-wrap {
   background: rgba(255, 255, 255, 0.04);
