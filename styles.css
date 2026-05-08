@@ -160,7 +160,18 @@ body {
     inset 0 0 20px rgba(236, 173, 255, 0.12);
 }
 
-.card-item__name { margin: 0.45rem 0 0.1rem; font-size: 0.85rem; }
+.card-item__name {
+  margin: 0.45rem 0 0.1rem;
+  font-size: 0.9rem;
+  font-family: "Shippori Mincho B1", serif;
+  color: var(--lavender-2);
+  letter-spacing: 0.03em;
+  text-align: center;
+
+  /* ✦ ほんのり光 */
+  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
+}
+
 
 @media (min-width: 760px) {
   .result { grid-template-columns: 280px 1fr; }
