@@ -128,18 +128,38 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 .card-item {
-  border: 1px solid rgba(242, 204, 143, 0.25);
+  border: 1px solid rgba(242, 204, 143, 0.35);
   border-radius: 12px;
   background: rgba(15, 18, 46, 0.75);
   padding: 0.45rem;
+
+  /* ✦ 魔法の光 */
+  box-shadow:
+    0 0 6px rgba(236, 173, 255, 0.25),
+    0 0 12px rgba(236, 173, 255, 0.15);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+.card-item:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 10px rgba(236, 173, 255, 0.45),
+    0 0 18px rgba(236, 173, 255, 0.35);
+}
+
 .card-item__img {
   width: 100%;
   aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.06);
+
+  /* ✦ 月光フィルム */
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.08),
+    inset 0 0 20px rgba(236, 173, 255, 0.12);
 }
+
 .card-item__name { margin: 0.45rem 0 0.1rem; font-size: 0.85rem; }
 
 @media (min-width: 760px) {
