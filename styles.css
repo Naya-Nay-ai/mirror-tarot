@@ -191,10 +191,9 @@ body {
   gap: 1rem;
 }
 .result {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;  
   gap: 1rem;
 }
 
