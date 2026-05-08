@@ -213,8 +213,11 @@ body {
   aspect-ratio: 2 / 3;
   object-fit: cover;
 }
+.orientation {
+  color: var(--gold);
+  font-weight: 700;
+}
 
-.orientation { color: var(--gold); font-weight: 700; }
 .keywords { color: var(--lavender-2); }
 .meaning { line-height: 1.55; }
 .section-title {
