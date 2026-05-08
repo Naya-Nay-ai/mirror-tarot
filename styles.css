@@ -277,9 +277,18 @@ body {
   text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
 }
 
-
+.result {
+  margin-top: 1rem;
+  display: block;
+  gap: 1rem;
+}
 
 
 @media (min-width: 760px) {
-  .result { grid-template-columns: 280px 1fr; }
+  .result {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
 }
