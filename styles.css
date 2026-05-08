@@ -163,14 +163,15 @@ body {
 .card-item__name {
   margin: 0.45rem 0 0.1rem;
   font-size: 0.9rem;
-  font-family: "Shippori Mincho B1", serif;
+  font-family: "Aoboshi One", serif;
   color: var(--lavender-2);
   letter-spacing: 0.03em;
   text-align: center;
 
-  /* ✦ ほんのり光 */
+  /* ✦ ほんのり魔法の光 */
   text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
 }
+
 
 
 @media (min-width: 760px) {
