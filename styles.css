@@ -284,9 +284,9 @@ body {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
-
 @media (min-width: 760px) {
   .result {
     flex-direction: row;
