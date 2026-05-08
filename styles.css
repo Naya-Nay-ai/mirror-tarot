@@ -200,6 +200,8 @@ body {
 
 .result.hidden { display: none; }
 .result__image-wrap {
+  width: 260px;
+  flex-shrink: 0;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(242, 204, 143, 0.35);
   border-radius: 14px;
@@ -207,7 +209,10 @@ body {
   display: flex;
   justify-content: center;
 }
-.result__image { width: min(100%, 260px); aspect-ratio: 2 / 3; object-fit: cover; }
+.result__image {
+  width: 260px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
 .orientation { color: var(--gold); font-weight: 700; }
 .keywords { color: var(--lavender-2); }
 .meaning { line-height: 1.55; }
