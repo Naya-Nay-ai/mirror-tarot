@@ -217,6 +217,7 @@ body {
   color: var(--lavender-2);
   letter-spacing: 0.03em;
   text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
+  text-align: center;
   }
 
 .card-grid {
