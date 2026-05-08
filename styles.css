@@ -137,8 +137,21 @@ body {
 .orientation { color: var(--gold); font-weight: 700; }
 .keywords { color: var(--lavender-2); }
 .meaning { line-height: 1.55; }
+.section-title {
+  font-family: "Aoboshi One", serif;
+  color: var(--lavender-2);
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
+  text-align: center;
+}
 
-.catalog__hint { margin-top: -0.2rem; color: var(--lavender-2); }
+.catalog__hint {
+  font-family: "Aoboshi One", serif;
+  color: var(--lavender-2);
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
+}
+
 .card-grid {
   list-style: none;
   padding: 0;
