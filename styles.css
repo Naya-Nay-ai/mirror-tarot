@@ -78,7 +78,7 @@ body {
 }
 
 .draw-btn {
-  background: linear-gradient(120deg, #b79dfd, #ebddff);
+  background: linear-gradient(135deg, #d8c6ff, #f4e9ff);
   color: #24234c;
   border: none;
   border-radius: 999px;
@@ -86,7 +86,22 @@ body {
   font-weight: 700;
   padding: 0.7rem 1.5rem;
   cursor: pointer;
+
+  /* 魔法の光 */
+  box-shadow:
+    0 0 8px rgba(236, 173, 255, 0.6),
+    0 0 14px rgba(236, 173, 255, 0.4);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.draw-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 12px rgba(236, 173, 255, 0.8),
+    0 0 20px rgba(236, 173, 255, 0.6);
+}
+
 
 .result { margin-top: 1rem; display: grid; gap: 1rem; align-items: start; }
 .result.hidden { display: none; }
