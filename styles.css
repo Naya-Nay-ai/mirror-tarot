@@ -15,7 +15,7 @@
 
 body {
   font-family: "Zen Kaku Gothic New", sans-serif;
-  color: var(--text-main);
+  color: var(--text);
   background:
     radial-gradient(circle at 20% 10%, #3b3f8f 0%, #1a1f55 40%, #0b0f2d 100%);
   margin: 0;
