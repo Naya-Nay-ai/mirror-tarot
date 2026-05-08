@@ -78,13 +78,13 @@ body {
   letter-spacing: 0.04em;
   color: #f8f6ff;
   text-shadow:
-   text-shadow:
     0 0 22px rgba(168,192,255,0.35),
     0 0 12px rgba(168,192,255,0.25),
     0 2px 10px rgba(0,0,0,0.35);
   margin-bottom: 0.7rem;
   text-align: center;
 }
+
 
 .app-subtitle {
   font-family: "Shippori Mincho B1", serif;
