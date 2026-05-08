@@ -95,19 +95,6 @@ body {
 }
 
 
-<div class="hero">
-  <div class="app-kicker">☽ Mirror Oracle ✦</div>
-
-  <div class="app-title">
-    Naya & Nay's Mirror Tarot
-  </div>
-
-  <div class="app-subtitle">
-    月の鏡に映る1枚を引いて、今日のメッセージを受け取ろう。
-  </div>
-</div>
-
-
 .hero {
   position: relative;
   padding: 2.2rem 1.4rem 2rem;
