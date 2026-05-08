@@ -61,10 +61,19 @@ body {
   gap: 1.2rem;
 }
 
-.hero {
-  text-align: center;
-  padding: 1.2rem;
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-family: "Aoboshi One", serif;
+  letter-spacing: 0.03em;
+  color: var(--lavender-2);
+
+  /* ✦ 魔法の光 */
+  text-shadow:
+    0 0 6px rgba(236, 173, 255, 0.45),
+    0 0 12px rgba(236, 173, 255, 0.25);
 }
+
 .hero__eyebrow { color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.2rem; }
 .hero h1 { margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.3rem); }
 .hero__lead { color: var(--lavender-2); margin-top: 0.6rem; }
