@@ -184,6 +184,12 @@ body {
   transform: translateX(120%);
 }
 
+.draw-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 .result { margin-top: 1rem; display: grid; gap: 1rem; align-items: start; }
 .result.hidden { display: none; }
 .result__image-wrap {
@@ -266,6 +272,13 @@ body {
   text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
 }
 
+.section-title {
+  font-family: "Cinzel", serif;
+  color: var(--lavender-2);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 6px rgba(236, 173, 255, 0.35);
+  text-align: center;
+}
 
 
 @media (min-width: 760px) {
