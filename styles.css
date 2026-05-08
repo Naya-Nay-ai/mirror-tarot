@@ -75,7 +75,7 @@ body {
   font-family: "Cinzel", serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.15;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: #f8f6ff;
   text-shadow:
     0 0 32px rgba(180, 200, 255, 0.55),
@@ -207,7 +207,7 @@ body {
 .section-title {
   font-family: "Cinzel", serif;
   color: var(--lavender-2);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-shadow: 0 0 6px rgba(236, 173, 255, 0.35);
   text-align: center;
 }
