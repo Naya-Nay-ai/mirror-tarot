@@ -75,7 +75,7 @@ body {
 }
 
 .hero__eyebrow { color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.2rem; }
-.hero h1 { margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.3rem); }
+
 .hero__lead { color: var(--lavender-2); margin-top: 0.6rem; }
 
 .card-frame {
