@@ -163,6 +163,47 @@ body {
     0 0 20px rgba(236, 173, 255, 0.6);
 }
 
+.draw-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.8rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(136,110,255,0.95), rgba(94,145,255,0.88));
+  color: #fff;
+  font-family: "Shippori Mincho", serif;
+  font-size: 1rem;
+  box-shadow:
+    0 8px 24px rgba(98,110,255,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  overflow: hidden;
+}
+
+.draw-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.22) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.draw-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(98,110,255,0.38),
+    inset 0 1px 0 rgba(255,255,255,0.24);
+  filter: brightness(1.05);
+}
+
+.draw-button:hover::before {
+  transform: translateX(120%);
+}
 
 .result { margin-top: 1rem; display: grid; gap: 1rem; align-items: start; }
 .result.hidden { display: none; }
