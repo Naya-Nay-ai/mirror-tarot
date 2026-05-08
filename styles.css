@@ -62,7 +62,7 @@ body {
 }
 
 .app-kicker {
-  font-family: "Aoboshi One", serif;
+  font-family: "Cinzel", serif;
   letter-spacing: 0.16em;
   font-size: 0.95rem;
   color: rgba(220,230,255,0.92);
@@ -72,7 +72,7 @@ body {
 }
 
 .app-title {
-  font-family: "Aoboshi One", serif;
+  font-family: "Cinzel", serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.15;
   letter-spacing: 0.04em;
