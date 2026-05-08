@@ -200,7 +200,6 @@ body {
 
 .result.hidden { display: none; }
 .result__image-wrap {
-  width: 260px;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(242, 204, 143, 0.35);
@@ -285,6 +284,14 @@ body {
   text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
 }
 
+.card-image {
+  width: 260px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+
+  
 @media (min-width: 760px) {
   .result {
     flex-direction: row;
