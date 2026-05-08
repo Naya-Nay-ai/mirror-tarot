@@ -200,6 +200,7 @@ body {
 
 .result.hidden { display: none; }
 .result__image-wrap {
+  width: 260px;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(242, 204, 143, 0.35);
@@ -208,6 +209,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .result__image {
   width: 260px;
   aspect-ratio: 2 / 3;
