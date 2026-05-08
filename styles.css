@@ -74,20 +74,18 @@ body {
     0 0 12px rgba(236, 173, 255, 0.25);
 }
 
-.hero__eyebrow {
-  color: var(--gold);
-  letter-spacing: 0.08em;
-  margin-bottom: 0.2rem;
-  font-family: "Aoboshi One", serif;
-  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
-}
+<div class="hero">
+  <div class="app-kicker">☽ Mirror Oracle ✦</div>
 
-.hero__lead {
-  color: var(--lavender-2);
-  margin-top: 0.6rem;
-  font-family: "Shippori Mincho B1", serif;
-  letter-spacing: 0.02em;
-}
+  <div class="app-title">
+    Naya & Nay's Mirror Tarot
+  </div>
+
+  <div class="app-subtitle">
+    月の鏡に映る1枚を引いて、今日のメッセージを受け取ろう。
+  </div>
+</div>
+
 
 .hero {
   position: relative;
