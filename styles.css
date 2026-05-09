@@ -449,4 +449,50 @@ body {
   }
 }
 
+/* ===========================
+   🌙 Night sky fix
+   ドット壁紙にならず、無地にもならない星空
+   =========================== */
 
+.sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18px 26px, rgba(255,255,255,0.34) 0 1px, transparent 2px),
+    radial-gradient(circle at 92px 78px, rgba(231,220,255,0.26) 0 1px, transparent 2px),
+    radial-gradient(circle at 154px 132px, rgba(242,204,143,0.2) 0 1px, transparent 2px),
+    radial-gradient(circle at 44px 148px, rgba(255,255,255,0.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 50% 12%, rgba(160,180,255,0.12), transparent 34%),
+    radial-gradient(circle at 82% 78%, rgba(200,173,255,0.10), transparent 30%);
+  background-size:
+    180px 180px,
+    240px 240px,
+    300px 300px,
+    360px 360px,
+    100% 100%,
+    100% 100%;
+  background-position:
+    0 0,
+    38px 66px,
+    120px 28px,
+    16px 130px,
+    0 0,
+    0 0;
+  background-repeat:
+    repeat,
+    repeat,
+    repeat,
+    repeat,
+    no-repeat,
+    no-repeat;
+  opacity: 0.82;
+  animation: twinkle 7s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+/* 文字星の列はいったん消す。古い壁紙感が出やすいので */
+.sky::before,
+.sky::after {
+  content: "";
+}
