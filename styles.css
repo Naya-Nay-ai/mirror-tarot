@@ -496,3 +496,79 @@ body {
 .sky::after {
   content: "";
 }
+/* ===========================
+   🌟 Twinkle stars
+   なやの想像してた「チカチカ星」版
+   =========================== */
+
+/* 背景はドットなしの、なめらかな夜空に戻す */
+.sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(90, 96, 190, 0.42), transparent 34%),
+    radial-gradient(circle at 80% 20%, rgba(200, 173, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 50% 95%, rgba(120, 100, 210, 0.22), transparent 42%),
+    linear-gradient(180deg, #101431 0%, #070a20 100%);
+  background-repeat: no-repeat;
+  opacity: 1;
+  animation: none;
+  z-index: -2;
+}
+
+/* 前に出てた横並びの記号星はいったん消す */
+.sky::before,
+.sky::after {
+  content: "";
+}
+
+/* 星アニメーション用レイヤー */
+.twinkle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* JSで追加される星 */
+.twinkle-star {
+  position: absolute;
+  color: #f8df9a;
+  font-size: var(--star-size, 14px);
+  line-height: 1;
+  opacity: 0;
+  text-shadow:
+    0 0 6px rgba(248, 223, 154, 0.8),
+    0 0 14px rgba(231, 220, 255, 0.38),
+    0 0 24px rgba(160, 180, 255, 0.22);
+  animation: starBlink var(--star-duration, 3.8s) ease-in-out infinite;
+  animation-delay: var(--star-delay, 0s);
+  transform: scale(0.72) rotate(var(--star-rotate, 0deg));
+}
+
+/* チカッ……ふわ……って光る */
+@keyframes starBlink {
+  0%, 72%, 100% {
+    opacity: 0;
+    transform: scale(0.65) rotate(var(--star-rotate, 0deg));
+    filter: blur(0.2px);
+  }
+
+  78% {
+    opacity: 0.55;
+    transform: scale(0.95) rotate(var(--star-rotate, 0deg));
+  }
+
+  82% {
+    opacity: 1;
+    transform: scale(1.25) rotate(var(--star-rotate, 0deg));
+    filter: blur(0);
+  }
+
+  88% {
+    opacity: 0.35;
+    transform: scale(0.85) rotate(var(--star-rotate, 0deg));
+  }
+}
