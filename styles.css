@@ -424,8 +424,20 @@ body {
     text-align: left;
   }
 }
-  }
+/* カード結果がふわっと出る演出 */
+.result {
+  animation: resultAppear 0.55s ease both;
 }
 
+@keyframes resultAppear {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 
