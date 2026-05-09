@@ -304,10 +304,11 @@ body {
 
 @media (min-width: 760px) {
   .result__meta {
-    flex: 1 1 auto;   
-    max-width: 600px; 
+    flex: 1 1 auto;
+    max-width: 600px;
   }
-}
+
+  .result {
     flex-direction: row;
     align-items: flex-start;
   }
