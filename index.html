@@ -45,7 +45,35 @@
         <ul id="cardList" class="card-grid"></ul>
       </section>
     </main>
+<dialog id="cardModal" class="card-modal">
+  <div class="card-modal__inner">
+    <button id="cardModalClose" class="card-modal__close" type="button" aria-label="閉じる">
+      ✕
+    </button>
 
+    <div class="card-modal__image-wrap">
+      <img id="modalCardImage" class="card-modal__image" alt="" />
+    </div>
+
+    <div class="card-modal__text">
+      <p id="modalCardNumber" class="card-modal__number"></p>
+      <h3 id="modalCardName" class="card-modal__name"></h3>
+
+      <div class="card-modal__section">
+        <h4>Upright</h4>
+        <p id="modalUprightKeywords" class="card-modal__keywords"></p>
+        <p id="modalUprightMeaning" class="card-modal__meaning"></p>
+      </div>
+
+      <div class="card-modal__section">
+        <h4>Reversed</h4>
+        <p id="modalReversedKeywords" class="card-modal__keywords"></p>
+        <p id="modalReversedMeaning" class="card-modal__meaning"></p>
+      </div>
+    </div>
+  </div>
+</dialog>
+    
     <template id="cardItemTemplate">
       <li class="card-item">
         <img class="card-item__img" loading="lazy" alt="" />
