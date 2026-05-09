@@ -116,8 +116,8 @@ function createTwinkleStars() {
     star.style.left = `${pos.x}%`;
     star.style.top = `${pos.y}%`;
     star.style.setProperty('--star-size', `${9 + Math.random() * 10}px`);
-    star.style.setProperty('--star-delay', `${-Math.random() * 8}s`);
-    star.style.setProperty('--star-duration', `${4.2 + Math.random() * 4.8}s`);
+    star.style.setProperty('--star-delay', `${-Math.random() * 10}s`);
+    star.style.setProperty('--star-duration', `${5.2 + Math.random() * 4.8}s`);
     star.style.setProperty('--star-rotate', `${Math.random() * 90}deg`);
 
     layer.appendChild(star);
