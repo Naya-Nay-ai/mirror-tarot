@@ -863,3 +863,61 @@ body {
   font-family: "Shippori Mincho B1", serif;
   color: rgba(244, 242, 255, 0.82);
 }
+/* ===========================
+   📱 Mobile modal scroll fix
+   スマホでカード詳細を最後まで読めるようにする
+   =========================== */
+
+.card-modal {
+  max-height: 88dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.card-modal__inner {
+  min-height: 0;
+}
+
+/* スマホでは縦スクロール前提の読みやすい形にする */
+@media (max-width: 520px) {
+  .card-modal {
+    width: min(94vw, 420px);
+    max-height: 86dvh;
+    border-radius: 20px;
+  }
+
+  .card-modal__inner {
+    display: block;
+    padding: 1rem;
+    padding-bottom: 1.4rem;
+  }
+
+  .card-modal__close {
+    position: sticky;
+    top: 0.65rem;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-modal__image-wrap {
+    margin-top: 0.5rem;
+    padding: 0.65rem;
+  }
+
+  .card-modal__image {
+    width: min(100%, 220px);
+  }
+
+  .card-modal__name {
+    margin-right: 0;
+    font-size: 1.35rem;
+  }
+
+  .card-modal__text {
+    margin-top: 1rem;
+  }
+}
