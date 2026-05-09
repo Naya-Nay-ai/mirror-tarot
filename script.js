@@ -70,8 +70,10 @@ function createTwinkleStars() {
   const layer = document.querySelector('.twinkle-layer');
   if (!layer) return;
 
+  layer.innerHTML = "";
+
   const symbols = ['✦', '✧', '✶', '⋆'];
-  const starCount = 26;
+  const starCount = 42;
 
   for (let i = 0; i < starCount; i += 1) {
     const star = document.createElement('span');
@@ -81,9 +83,14 @@ function createTwinkleStars() {
 
     star.style.left = `${Math.random() * 100}%`;
     star.style.top = `${Math.random() * 100}%`;
-    star.style.setProperty('--star-size', `${8 + Math.random() * 10}px`);
-    star.style.setProperty('--star-delay', `${Math.random() * 6}s`);
-    star.style.setProperty('--star-duration', `${3.2 + Math.random() * 4.2}s`);
+
+    star.style.setProperty('--star-size', `${10 + Math.random() * 12}px`);
+
+    // マイナス遅延にすると、ページを開いた瞬間からどこかが光ってる状態になる
+    star.style.setProperty('--star-delay', `${-Math.random() * 4}s`);
+
+    // 早めにチカチカする
+    star.style.setProperty('--star-duration', `${1.8 + Math.random() * 2.4}s`);
     star.style.setProperty('--star-rotate', `${Math.random() * 90}deg`);
 
     layer.appendChild(star);
