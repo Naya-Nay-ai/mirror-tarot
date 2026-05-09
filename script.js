@@ -73,24 +73,51 @@ function createTwinkleStars() {
   layer.innerHTML = "";
 
   const symbols = ['✦', '✧', '✶', '⋆'];
-  const starCount = 42;
+  const starCount = 72; // ← 数を増やした
+
+  function pickPosition() {
+    const isMobile = window.innerWidth < 760;
+    const r = Math.random();
+
+    if (isMobile) {
+      // スマホでは全体に散らしつつ、少し端寄せ
+      if (r < 0.35) {
+        return { x: Math.random() * 20, y: Math.random() * 100 }; // 左
+      }
+      if (r < 0.7) {
+        return { x: 80 + Math.random() * 20, y: Math.random() * 100 }; // 右
+      }
+      if (r < 0.85) {
+        return { x: 8 + Math.random() * 84, y: Math.random() * 16 }; // 上
+      }
+      return { x: 8 + Math.random() * 84, y: 84 + Math.random() * 12 }; // 下
+    }
+
+    // PCでは中央パネルを避けて、左右と上下に多めに出す
+    if (r < 0.4) {
+      return { x: Math.random() * 18, y: Math.random() * 100 }; // 左余白
+    }
+    if (r < 0.8) {
+      return { x: 82 + Math.random() * 18, y: Math.random() * 100 }; // 右余白
+    }
+    if (r < 0.9) {
+      return { x: 10 + Math.random() * 80, y: Math.random() * 14 }; // 上
+    }
+    return { x: 10 + Math.random() * 80, y: 86 + Math.random() * 10 }; // 下
+  }
 
   for (let i = 0; i < starCount; i += 1) {
     const star = document.createElement('span');
+    const pos = pickPosition();
 
     star.className = 'twinkle-star';
     star.textContent = symbols[Math.floor(Math.random() * symbols.length)];
 
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 100}%`;
-
-    star.style.setProperty('--star-size', `${10 + Math.random() * 12}px`);
-
-    // マイナス遅延にすると、ページを開いた瞬間からどこかが光ってる状態になる
+    star.style.left = `${pos.x}%`;
+    star.style.top = `${pos.y}%`;
+    star.style.setProperty('--star-size', `${9 + Math.random() * 10}px`);
     star.style.setProperty('--star-delay', `${-Math.random() * 4}s`);
-
-    // 早めにチカチカする
-    star.style.setProperty('--star-duration', `${1.8 + Math.random() * 2.4}s`);
+    star.style.setProperty('--star-duration', `${1.8 + Math.random() * 2.2}s`);
     star.style.setProperty('--star-rotate', `${Math.random() * 90}deg`);
 
     layer.appendChild(star);
