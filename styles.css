@@ -838,3 +838,28 @@ body {
     align-items: start;
   }
 }
+.card-item__name {
+  margin: 0.45rem 0 0.1rem;
+  text-align: center;
+  line-height: 1.35;
+  min-height: 3.2em; /* 高さを少し確保してガタつき防止 */
+}
+
+.card-item__name-en,
+.card-item__name-ja {
+  display: block;
+}
+
+.card-item__name-en {
+  font-size: 0.88rem;
+  font-family: "Cinzel", serif;
+  color: var(--lavender-2);
+  letter-spacing: 0.03em;
+}
+
+.card-item__name-ja {
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+  font-family: "Shippori Mincho B1", serif;
+  color: rgba(244, 242, 255, 0.82);
+}
