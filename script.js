@@ -8,6 +8,16 @@ const cardMeaning = document.getElementById('cardMeaning');
 const cardList = document.getElementById('cardList');
 const cardItemTemplate = document.getElementById('cardItemTemplate');
 
+const cardModal = document.getElementById('cardModal');
+const cardModalClose = document.getElementById('cardModalClose');
+const modalCardImage = document.getElementById('modalCardImage');
+const modalCardNumber = document.getElementById('modalCardNumber');
+const modalCardName = document.getElementById('modalCardName');
+const modalUprightKeywords = document.getElementById('modalUprightKeywords');
+const modalUprightMeaning = document.getElementById('modalUprightMeaning');
+const modalReversedKeywords = document.getElementById('modalReversedKeywords');
+const modalReversedMeaning = document.getElementById('modalReversedMeaning');
+
 const BACK_IMAGE_PATH = 'assets/back/back_mirror_tarot_adopted.png';
 let cards = [];
 
@@ -36,8 +46,25 @@ function drawOneCard() {
   result.classList.remove('hidden');
 }
 
+function openCardModal(card) {
+  modalCardImage.src = card.image;
+  modalCardImage.alt = `${card.name_en} / ${card.name_ja}`;
+
+  modalCardNumber.textContent = `Major Arcana ${card.roman}`;
+  modalCardName.textContent = `${card.name_en} / ${card.name_ja}`;
+
+  modalUprightKeywords.textContent = card.upright_keywords.join(' / ');
+  modalUprightMeaning.textContent = card.upright_meaning;
+
+  modalReversedKeywords.textContent = card.reversed_keywords.join(' / ');
+  modalReversedMeaning.textContent = card.reversed_meaning;
+
+  cardModal.showModal();
+}
+
 function createCardListItem(card) {
   const node = cardItemTemplate.content.cloneNode(true);
+  const item = node.querySelector('.card-item');
   const image = node.querySelector('.card-item__img');
   const name = node.querySelector('.card-item__name');
 
@@ -47,7 +74,23 @@ function createCardListItem(card) {
     image.src = BACK_IMAGE_PATH;
     image.alt = `${card.name_en} (back image fallback)`;
   };
+
   name.textContent = `${card.roman} ${card.name_en} / ${card.name_ja}`;
+
+  item.tabIndex = 0;
+  item.setAttribute('role', 'button');
+  item.setAttribute('aria-label', `${card.name_en} / ${card.name_ja} の詳細を見る`);
+
+  item.addEventListener('click', () => {
+    openCardModal(card);
+  });
+
+  item.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openCardModal(card);
+    }
+  });
 
   return node;
 }
@@ -66,6 +109,18 @@ async function setup() {
 setup().catch((error) => {
   console.error('Failed to load cards:', error);
 });
+
+cardModalClose.addEventListener('click', () => {
+  cardModal.close();
+});
+
+cardModal.addEventListener('click', (event) => {
+  if (event.target === cardModal) {
+    cardModal.close();
+  }
+});
+
+
 function createTwinkleStars() {
   const layer = document.querySelector('.twinkle-layer');
   if (!layer) return;
