@@ -73,7 +73,7 @@ function createTwinkleStars() {
   layer.innerHTML = "";
 
   const symbols = ['✦', '✧', '✶', '⋆'];
-  const starCount = 72; // ← 数を増やした
+  const starCount = 90; // ← 数を増やした
 
   function pickPosition() {
     const isMobile = window.innerWidth < 760;
