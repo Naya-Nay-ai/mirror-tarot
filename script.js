@@ -75,7 +75,10 @@ function createCardListItem(card) {
     image.alt = `${card.name_en} (back image fallback)`;
   };
 
-  name.textContent = `${card.roman} ${card.name_en} / ${card.name_ja}`;
+  name.innerHTML = `
+  <span class="card-item__name-en">${card.roman} ${card.name_en}</span>
+  <span class="card-item__name-ja">${card.name_ja}</span>
+`;
 
   item.tabIndex = 0;
   item.setAttribute('role', 'button');
