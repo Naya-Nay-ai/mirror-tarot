@@ -28,14 +28,20 @@ body {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.38) 0 1px, transparent 2px),
-    radial-gradient(circle at 28% 72%, rgba(231,220,255,0.32) 0 1px, transparent 2px),
-    radial-gradient(circle at 46% 34%, rgba(255,245,214,0.28) 0 1px, transparent 2px),
-    radial-gradient(circle at 68% 64%, rgba(255,255,255,0.24) 0 1px, transparent 2px),
-    radial-gradient(circle at 84% 26%, rgba(231,220,255,0.3) 0 1px, transparent 2px),
-    radial-gradient(circle at 92% 78%, rgba(255,245,214,0.22) 0 1px, transparent 2px);
+    radial-gradient(circle at 16% 22%, rgba(255,255,255,0.34) 0 1px, transparent 2px),
+    radial-gradient(circle at 32% 68%, rgba(231,220,255,0.26) 0 1px, transparent 2px),
+    radial-gradient(circle at 54% 18%, rgba(242,204,143,0.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 44%, rgba(255,255,255,0.28) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 82%, rgba(231,220,255,0.22) 0 1px, transparent 2px),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.035),
+      transparent 28%,
+      rgba(200,180,255,0.035) 100%
+    );
   background-repeat: no-repeat;
-  animation: twinkle 6s ease-in-out infinite alternate;
+  opacity: 0.9;
+  animation: twinkle 7s ease-in-out infinite alternate;
   z-index: -1;
 }
 
