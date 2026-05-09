@@ -572,3 +572,80 @@ body {
     transform: scale(0.85) rotate(var(--star-rotate, 0deg));
   }
 }
+/* ===========================
+   🌟 Twinkle stars layer fix
+   星が背景の裏に潜らないようにする
+   =========================== */
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(90, 96, 190, 0.42), transparent 34%),
+    radial-gradient(circle at 80% 20%, rgba(200, 173, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 50% 95%, rgba(120, 100, 210, 0.22), transparent 42%),
+    linear-gradient(180deg, #101431 0%, #070a20 100%);
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: transparent;
+  z-index: 0;
+}
+
+.sky::before,
+.sky::after {
+  content: "";
+}
+
+.twinkle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+}
+
+.twinkle-star {
+  position: absolute;
+  color: #ffe6a7;
+  font-size: var(--star-size, 14px);
+  line-height: 1;
+  opacity: 0;
+  text-shadow:
+    0 0 6px rgba(255, 230, 167, 0.95),
+    0 0 14px rgba(231, 220, 255, 0.55),
+    0 0 24px rgba(160, 180, 255, 0.36);
+  animation: starBlink var(--star-duration, 3.8s) ease-in-out infinite;
+  animation-delay: var(--star-delay, 0s);
+  transform: scale(0.72) rotate(var(--star-rotate, 0deg));
+}
+
+@keyframes starBlink {
+  0%, 68%, 100% {
+    opacity: 0;
+    transform: scale(0.65) rotate(var(--star-rotate, 0deg));
+  }
+
+  76% {
+    opacity: 0.75;
+    transform: scale(1) rotate(var(--star-rotate, 0deg));
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(1.35) rotate(var(--star-rotate, 0deg));
+  }
+
+  88% {
+    opacity: 0.25;
+    transform: scale(0.85) rotate(var(--star-rotate, 0deg));
+  }
+}
