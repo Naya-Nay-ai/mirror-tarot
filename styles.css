@@ -740,3 +740,26 @@ body {
 .title-star--mobile {
   display: none;
 }
+@media (max-width: 520px) {
+  .app-title {
+    flex-direction: column;
+    gap: 0.08rem;
+    white-space: normal;
+    line-height: 0.98;
+    letter-spacing: 0.09em;
+  }
+
+  .title-star--side {
+    display: none;
+  }
+
+  .title-star--mobile {
+    display: block;
+    font-size: 0.34em;
+    margin: 0.05rem 0;
+  }
+
+  .title-word {
+    display: block;
+  }
+}
