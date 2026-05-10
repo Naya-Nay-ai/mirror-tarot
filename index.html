@@ -5,32 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Naya & Nay's Mirror Tarot</title>
 
-<!-- 🌙 Google Fonts（ここを追加） -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Shippori+Mincho+B1:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Shippori+Mincho+B1:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=11" />
+  </head>
 
-<link rel="stylesheet" href="styles.css?v=10" />
-
-    
-</head>
   <body>
     <div class="sky"></div>
-<div class="twinkle-layer" aria-hidden="true"></div>
+    <div class="twinkle-layer" aria-hidden="true"></div>
+
     <main class="app">
-<div class="hero">
-  <div class="app-kicker">☽ Mirror Oracle ✦</div>
-  <div class="app-title">Naya & Nay's Mirror Tarot</div>
-  <div class="app-subtitle">
-   月の鏡に映る一枚をめくって、今日の声を受け取って。
-  </div>
-</div>
+      <div class="hero">
+        <div class="app-kicker">☽ Mirror Oracle ✦</div>
+        <div class="app-title">Naya & Nay's Mirror Tarot</div>
+        <div class="app-subtitle">
+          月の鏡に映る一枚をめくって、今日の声を受け取って。
+        </div>
+      </div>
+
       <section class="draw-panel card-frame">
         <h2 class="section-title">One Card Draw</h2>
-        <button id="drawButton" class="draw-button" type="button">カードを引く</button>
+        <button id="drawButton" class="draw-button" type="button">
+          カードを引く
+        </button>
 
         <article id="result" class="result hidden" aria-live="polite">
           <div class="result__image-wrap">
             <img id="cardImage" class="result__image" alt="" />
           </div>
+
           <div class="result__meta">
             <h3 id="cardName"></h3>
             <p id="cardOrientation" class="orientation"></p>
@@ -41,40 +46,46 @@
       </section>
 
       <section class="catalog card-frame">
-       <h2 class="section-title">Major Arcana</h2>
+        <h2 class="section-title">Major Arcana</h2>
         <p class="catalog__hint">22枚のカード一覧</p>
         <ul id="cardList" class="card-grid"></ul>
       </section>
     </main>
-<dialog id="cardModal" class="card-modal">
-  <div class="card-modal__inner">
-   <button id="cardModalClose" class="card-modal__close" type="button" aria-label="閉じる">
-  ✦ close
-</button>
 
-    <div class="card-modal__image-wrap">
-      <img id="modalCardImage" class="card-modal__image" alt="" />
-    </div>
+    <dialog id="cardModal" class="card-modal">
+      <div class="card-modal__inner">
+        <button
+          id="cardModalClose"
+          class="card-modal__close"
+          type="button"
+          aria-label="閉じる"
+        >
+          ✦ close
+        </button>
 
-    <div class="card-modal__text">
-      <p id="modalCardNumber" class="card-modal__number"></p>
-      <h3 id="modalCardName" class="card-modal__name"></h3>
+        <div class="card-modal__image-wrap">
+          <img id="modalCardImage" class="card-modal__image" alt="" />
+        </div>
 
-      <div class="card-modal__section">
-        <h4>Upright</h4>
-        <p id="modalUprightKeywords" class="card-modal__keywords"></p>
-        <p id="modalUprightMeaning" class="card-modal__meaning"></p>
+        <div class="card-modal__text">
+          <p id="modalCardNumber" class="card-modal__number"></p>
+          <h3 id="modalCardName" class="card-modal__name"></h3>
+
+          <div class="card-modal__section">
+            <h4>Upright</h4>
+            <p id="modalUprightKeywords" class="card-modal__keywords"></p>
+            <p id="modalUprightMeaning" class="card-modal__meaning"></p>
+          </div>
+
+          <div class="card-modal__section">
+            <h4>Reversed</h4>
+            <p id="modalReversedKeywords" class="card-modal__keywords"></p>
+            <p id="modalReversedMeaning" class="card-modal__meaning"></p>
+          </div>
+        </div>
       </div>
+    </dialog>
 
-      <div class="card-modal__section">
-        <h4>Reversed</h4>
-        <p id="modalReversedKeywords" class="card-modal__keywords"></p>
-        <p id="modalReversedMeaning" class="card-modal__meaning"></p>
-      </div>
-    </div>
-  </div>
-</dialog>
-    
     <template id="cardItemTemplate">
       <li class="card-item">
         <img class="card-item__img" loading="lazy" alt="" />
@@ -82,6 +93,6 @@
       </li>
     </template>
 
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=6"></script>
   </body>
 </html>
