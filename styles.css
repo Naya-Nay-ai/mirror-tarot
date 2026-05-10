@@ -247,6 +247,10 @@ body {
   }
 }
 
+.draw-button.is-hidden {
+  display: none;
+}
+
 .draw-button {
   position: relative;
   display: inline-flex;
@@ -293,6 +297,15 @@ body {
 
 .draw-button:active {
   transform: translateY(0) scale(0.98);
+}
+
+.result.is-revealing .result__image-wrap {
+  animation: cardFlipIn 0.78s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transform-origin: center;
+}
+
+.result.is-revealing .result__meta {
+  animation: readingFadeIn 0.65s ease 0.18s both;
 }
 
 .result {
@@ -709,6 +722,39 @@ body {
 /* ===========================
    Animations
    =========================== */
+
+@keyframes cardFlipIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) rotateY(82deg) scale(0.96);
+    filter: brightness(1.35) blur(1px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateY(0) rotateY(-8deg) scale(1.02);
+    filter: brightness(1.18) blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateY(0deg) scale(1);
+    filter: brightness(1) blur(0);
+  }
+}
+
+@keyframes readingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 @keyframes resultAppear {
   from {
