@@ -21,8 +21,7 @@ const elements = {
   modalUprightMeaning: document.getElementById('modalUprightMeaning'),
   modalReversedKeywords: document.getElementById('modalReversedKeywords'),
   modalReversedMeaning: document.getElementById('modalReversedMeaning'),
-　
-  twinkleLayer: document.querySelector('.twinkle-layer'),
+　twinkleLayer: document.querySelector('.twinkle-layer'),
 };
 
 let cards = [];
