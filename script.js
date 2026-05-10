@@ -80,7 +80,6 @@ function drawOneCard() {
   elements.cardOrientation.textContent = orientation;
   elements.cardKeywords.textContent = `Keywords: ${keywords.join(' / ')}`;
   elements.cardMeaning.textContent = meaning;
-
   
   revealResult();
 }
