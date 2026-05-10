@@ -714,3 +714,29 @@ body {
     transform: scale(1) rotate(var(--star-rotate, 0deg));
   }
 }
+
+.app-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+}
+
+.title-word {
+  display: inline-block;
+}
+
+.title-star {
+  font-size: 0.36em;
+  color: rgba(242, 244, 255, 0.95);
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.75),
+    0 0 18px rgba(180, 200, 255, 0.45);
+}
+
+.title-star--mobile {
+  display: none;
+}
