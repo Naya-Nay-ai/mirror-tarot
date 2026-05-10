@@ -753,11 +753,15 @@ body {
     display: none;
   }
 
-  .title-star--mobile {
-    display: block;
-    font-size: 0.34em;
-    margin: 0.05rem 0;
-  }
+ .title-star--mobile {
+  display: block;
+  font-size: 0.52em;
+  margin: 0.02rem 0 0.08rem;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.85),
+    0 0 22px rgba(180, 200, 255, 0.5),
+    0 0 34px rgba(236, 173, 255, 0.28);
+}
 
   .title-word {
     display: block;
