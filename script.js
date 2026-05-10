@@ -2,6 +2,7 @@ const BACK_IMAGE_PATH = 'assets/back/back_mirror_tarot_adopted.png';
 
 const elements = {
   drawButton: document.getElementById('drawButton'),
+  backToTopButton: document.getElementById('backToTopButton'),
   deckPreview: document.getElementById('deckPreview'),
   result: document.getElementById('result'),
   cardImage: document.getElementById('cardImage'),
