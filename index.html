@@ -16,23 +16,32 @@
     <div class="sky"></div>
     <div class="twinkle-layer" aria-hidden="true"></div>
 
-    <main class="app">
+<main class="app">
   <div class="hero">
-  <div class="app-kicker"> ☽ MIRROR ORACLE ☾ </div>
-<div class="app-title">
-  <span class="title-star title-star--side">✦</span>
-  <span class="title-word">MIRROR</span>
-  <span class="title-star title-star--mobile">✦</span>
-  <span class="title-word">TAROT</span>
-  <span class="title-star title-star--side">✦</span>
-</div>
-  <div class="app-credit">Naya & Nay's Mirror Tarot</div>
-  <div class="app-subtitle">
-    月の鏡に映る一枚をめくって、今日の声を受け取って。
+    <div class="app-kicker">☽ MIRROR ORACLE ☾</div>
+    <div class="app-title">
+      <span class="title-star title-star--side">✦</span>
+      <span class="title-word">MIRROR</span>
+      <span class="title-star title-star--mobile">✦</span>
+      <span class="title-word">TAROT</span>
+      <span class="title-star title-star--side">✦</span>
+    </div>
+    <div class="app-credit">Naya & Nay's Mirror Tarot</div>
+    <div class="app-subtitle">
+      月の鏡に映る一枚をめくって、今日の声を受け取って。
+    </div>
   </div>
-</div>
       <section class="draw-panel card-frame">
         <h2 class="section-title">One Card Draw</h2>
+
+        <div id="deckPreview" class="deck-preview" aria-hidden="true">
+  <img
+    class="deck-preview__image"
+    src="assets/back/back_mirror_tarot_adopted.png"
+    alt=""
+  />
+</div>
+      
         <button id="drawButton" class="draw-button" type="button">
           カードを引く
         </button>
