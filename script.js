@@ -261,8 +261,9 @@ async function setupCards() {
   const response = await fetch('cards.json');
   cards = await response.json();
 
-  renderCardCatalog();
-  elements.drawButton.addEventListener('click', drawOneCard);
+renderCardCatalog();
+elements.drawButton.addEventListener('click', drawOneCard);
+elements.backToTopButton.addEventListener('click', resetDrawState);
 }
 
 function setup() {
