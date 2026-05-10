@@ -206,6 +206,47 @@ body {
   gap: 1rem;
 }
 
+.deck-preview {
+  width: min(100%, 220px);
+  margin: 0.25rem auto 0.35rem;
+  padding: 0.7rem;
+  border: 1px solid rgba(242, 204, 143, 0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(242, 204, 143, 0.12), transparent 45%),
+    rgba(255, 255, 255, 0.045);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    0 0 26px rgba(236, 173, 255, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  animation: deckFloat 4.6s ease-in-out infinite;
+}
+
+.deck-preview__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.38),
+    0 0 20px rgba(231, 220, 255, 0.18);
+}
+
+.deck-preview.is-hidden {
+  display: none;
+}
+
+@keyframes deckFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 .draw-button {
   position: relative;
   display: inline-flex;
