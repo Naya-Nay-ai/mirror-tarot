@@ -8,578 +8,22 @@
   --shadow: rgba(8, 10, 30, 0.45);
 }
 
-* { box-sizing: border-box; }
-/* ===========================
-   🌙 Background (Night Sky)
-   =========================== */
-
-body {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 20% 10%, #3b3f8f 0%, #1a1f55 40%, #0b0f2d 100%);
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-.sky {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 16% 22%, rgba(255,255,255,0.34) 0 1px, transparent 2px),
-    radial-gradient(circle at 32% 68%, rgba(231,220,255,0.26) 0 1px, transparent 2px),
-    radial-gradient(circle at 54% 18%, rgba(242,204,143,0.22) 0 1px, transparent 2px),
-    radial-gradient(circle at 78% 44%, rgba(255,255,255,0.28) 0 1px, transparent 2px),
-    radial-gradient(circle at 88% 82%, rgba(231,220,255,0.22) 0 1px, transparent 2px),
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.035),
-      transparent 28%,
-      rgba(200,180,255,0.035) 100%
-    );
-  background-repeat: no-repeat;
-  opacity: 0.9;
-  animation: twinkle 7s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-@keyframes twinkle {
-  0% { opacity: 0.4; }
-  100% { opacity: 0.8; }
-}
-
-.sky::before,
-.sky::after {
-  content: "✦ ✶ ✦ ✶ ✦ ✶ ✦";
-  position: fixed;
-  width: 100%;
-  color: rgba(255, 245, 214, 0.3);
-  text-align: center;
-  pointer-events: none;
-}
-.sky::before { top: 1.5rem; }
-.sky::after { bottom: 1.5rem; }
-
-.app {
-  width: min(1024px, 92vw);
-  margin: 1.2rem auto 3rem;
-  display: grid;
-  gap: 1.2rem;
-}
-
-.app-kicker {
-  font-family: "Cinzel", serif;
-  letter-spacing: 0.16em;
-  font-size: 0.95rem;
-  color: rgba(220,230,255,0.92);
-  text-shadow: 0 0 14px rgba(180,210,255,0.18);
-  margin-bottom: 0.6rem;
-  text-align: center;
-}
-
-.app-title {
-  font-family: "Cinzel", serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  line-height: 1.15;
-  letter-spacing: 0.03em;
-  color: #f8f6ff;
-  text-shadow:
-    0 0 32px rgba(180, 200, 255, 0.55),
-    0 0 18px rgba(160, 180, 255, 0.45),
-    0 0 8px rgba(255, 255, 255, 0.35),
-    0 2px 10px rgba(0,0,0,0.35);
-  margin-bottom: 0.7rem;
-  text-align: center;
-}
-
-
-.app-subtitle {
-  font-family: "Shippori Mincho B1", serif;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: rgba(238,238,248,0.88);
-  max-width: 38rem;
-  margin-inline: auto;
-  text-align: center;
-}
-
-
-.hero {
-  position: relative;
-  padding: 2.2rem 1.4rem 2rem;
-  border: 1px solid rgba(255,255,255,0.16);
-  border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(20,24,48,0.82), rgba(10,12,28,0.9)),
-    rgba(255,255,255,0.04);
-  backdrop-filter: blur(10px);
-  box-shadow:
-    0 12px 40px rgba(0,0,0,0.35),
-    inset 0 0 0 1px rgba(255,255,255,0.04);
-  overflow: visible;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(180,210,255,0.12), transparent 26%),
-    radial-gradient(circle at 80% 18%, rgba(255,230,180,0.10), transparent 24%),
-    radial-gradient(circle at 50% 100%, rgba(166,130,255,0.13), transparent 35%);
-  pointer-events: none;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: 23px;
-  border: 1px solid rgba(255,255,255,0.05);
-  pointer-events: none;
-}
-
-.card-frame {
-  background: linear-gradient(145deg, rgba(30, 37, 84, 0.8), rgba(20, 26, 63, 0.88));
-  border: 1px solid rgba(231, 220, 255, 0.28);
-  border-radius: 18px;
-  box-shadow: 0 12px 30px var(--shadow);
-  padding: 1rem;
-}
-
-
-.draw-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.95rem 1.8rem;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 999px;
-  background:
-    linear-gradient(135deg, rgba(136,110,255,0.95), rgba(94,145,255,0.88));
-  color: #fff;
-  font-family: "Shippori Mincho B1", serif;
-  font-size: 1rem;
-  box-shadow:
-    0 8px 24px rgba(98,110,255,0.28),
-    inset 0 1px 0 rgba(255,255,255,0.24);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  overflow: hidden;
-}
-
-.draw-button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.22) 50%, transparent 80%);
-  transform: translateX(-120%);
-  transition: transform 0.6s ease;
-}
-
-.draw-button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 14px 30px rgba(98,110,255,0.38),
-    inset 0 1px 0 rgba(255,255,255,0.24);
-  filter: brightness(1.05);
-}
-
-.draw-button:hover::before {
-  transform: translateX(120%);
-}
-
-.draw-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;  /* ← center → stretch に変更 */
-  gap: 1rem;
-}
-
-.result {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;  
-  gap: 1rem;
-  width: 100%;  
-}
-
-.result.hidden { display: none; }
-.result__image-wrap {
-  width: 260px;
-  flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(242, 204, 143, 0.35);
-  border-radius: 14px;
-  padding: 0.8rem;
-  display: flex;
-  justify-content: center;
-}
-
-.result__image {
-  width: 260px;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-}
-.orientation {
-  color: var(--gold);
-  font-weight: 700;
-}
-
-.keywords { color: var(--lavender-2); }
-.meaning { line-height: 1.55; }
-.section-title {
-  font-family: "Cinzel", serif;
-  color: var(--lavender-2);
-  letter-spacing: 0.03em;
-  text-shadow: 0 0 6px rgba(236, 173, 255, 0.35);
-  text-align: center;
-}
-
-.catalog__hint {
-  font-family: "Shippori Mincho B1", serif;
-  color: var(--lavender-2);
-  letter-spacing: 0.03em;
-  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
-  text-align: center;
-  }
-
-.card-grid {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.7rem;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-}
-.card-item {
-  border: 1px solid rgba(242, 204, 143, 0.35);
-  border-radius: 12px;
-  background: rgba(15, 18, 46, 0.75);
-  padding: 0.45rem;
-
-  /* ✦ 魔法の光 */
-  box-shadow:
-    0 0 6px rgba(236, 173, 255, 0.25),
-    0 0 12px rgba(236, 173, 255, 0.15);
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.card-item:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 0 10px rgba(236, 173, 255, 0.45),
-    0 0 18px rgba(236, 173, 255, 0.35);
-}
-
-.card-item__img {
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-
-  /* ✦ 月光フィルム */
-  box-shadow:
-    inset 0 0 12px rgba(255, 255, 255, 0.08),
-    inset 0 0 20px rgba(236, 173, 255, 0.12);
-}
-
-.card-item__name {
-  margin: 0.45rem 0 0.1rem;
-  font-size: 0.9rem;
-  font-family: "Shippori Mincho B1", serif;
-  color: var(--lavender-2);
-  letter-spacing: 0.03em;
-  text-align: center;
-
-  /* ✦ ほんのり魔法の光 */
-  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
-}
-
-.card-image {
-  width: 260px;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-}
-
-.result__meta {
-  width: 100%;
-}
-
-@media (min-width: 760px) {
-  .result__meta {
-    flex: 1 1 auto;
-    max-width: 600px;
-  }
-}
-/* ===========================
-   🪞 Result layout fix
-   結果表示まわりの安定化
-   =========================== */
-
-/* ボタンや見出しは中央に戻す */
-.draw-panel {
-  align-items: center;
-}
-
-/* 結果表示だけ横幅いっぱいにする */
-.result {
-  align-self: stretch;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1rem;
-  margin-top: 1rem;
-}
-
-/* hidden は必ず勝たせる */
-.result.hidden {
-  display: none !important;
-}
-
-/* カード画像の箱 */
-.result__image-wrap {
-  width: min(100%, 286px);
-  max-width: 286px;
-  flex-shrink: 0;
-  margin-inline: auto;
-}
-
-/* 実際のカード画像 */
-.result__image {
-  width: 100%;
-  max-width: 260px;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* 結果テキスト */
-.result__meta {
-  width: 100%;
-  max-width: 620px;
-  margin-inline: auto;
-  text-align: left;
-}
-
-/* カード名 */
-#cardName {
-  margin: 0 0 0.7rem;
-  font-family: "Cinzel", "Shippori Mincho B1", serif;
-  font-size: clamp(1.15rem, 3vw, 1.6rem);
-  line-height: 1.35;
-  color: #fff8ff;
-  text-shadow:
-    0 0 12px rgba(236, 173, 255, 0.32),
-    0 0 24px rgba(180, 200, 255, 0.16);
-}
-
-/* 正位置・逆位置 */
-.orientation {
-  margin: 0.25rem 0;
-  color: var(--gold);
-  font-family: "Cinzel", serif;
-  letter-spacing: 0.05em;
-}
-
-/* キーワード */
-.keywords {
-  margin: 0.45rem 0;
-  color: var(--lavender-2);
-  font-family: "Shippori Mincho B1", serif;
-  line-height: 1.7;
-}
-
-/* 意味本文 */
-.meaning {
-  margin-top: 0.8rem;
-  padding-top: 0.8rem;
-  border-top: 1px solid rgba(231, 220, 255, 0.16);
-  font-family: "Shippori Mincho B1", serif;
-  line-height: 1.9;
-  color: rgba(244, 242, 255, 0.9);
-}
-
-/* PCではカードと文章を横並び */
-@media (min-width: 760px) {
-  .result {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
-  .result__image-wrap {
-    margin-inline: 0;
-  }
-
-  .result__meta {
-    margin-inline: 0;
-    flex: 1 1 auto;
-  }
-}
-
-/* スマホではちゃんと中央に戻す */
-@media (max-width: 520px) {
-  .result {
-    align-items: center;
-  }
-
-  .result__meta {
-    text-align: left;
-  }
-}
-/* カード結果がふわっと出る演出 */
-.result {
-  animation: resultAppear 0.55s ease both;
-}
-
-@keyframes resultAppear {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+* {
+  box-sizing: border-box;
 }
 
 /* ===========================
-   🌙 Night sky fix
-   ドット壁紙にならず、無地にもならない星空
-   =========================== */
-
-.sky {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 18px 26px, rgba(255,255,255,0.34) 0 1px, transparent 2px),
-    radial-gradient(circle at 92px 78px, rgba(231,220,255,0.26) 0 1px, transparent 2px),
-    radial-gradient(circle at 154px 132px, rgba(242,204,143,0.2) 0 1px, transparent 2px),
-    radial-gradient(circle at 44px 148px, rgba(255,255,255,0.18) 0 1px, transparent 2px),
-    radial-gradient(circle at 50% 12%, rgba(160,180,255,0.12), transparent 34%),
-    radial-gradient(circle at 82% 78%, rgba(200,173,255,0.10), transparent 30%);
-  background-size:
-    180px 180px,
-    240px 240px,
-    300px 300px,
-    360px 360px,
-    100% 100%,
-    100% 100%;
-  background-position:
-    0 0,
-    38px 66px,
-    120px 28px,
-    16px 130px,
-    0 0,
-    0 0;
-  background-repeat:
-    repeat,
-    repeat,
-    repeat,
-    repeat,
-    no-repeat,
-    no-repeat;
-  opacity: 0.82;
-  animation: twinkle 7s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-/* 文字星の列はいったん消す。古い壁紙感が出やすいので */
-.sky::before,
-.sky::after {
-  content: "";
-}
-/* ===========================
-   🌟 Twinkle stars
-   なやの想像してた「チカチカ星」版
-   =========================== */
-
-/* 背景はドットなしの、なめらかな夜空に戻す */
-.sky {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(90, 96, 190, 0.42), transparent 34%),
-    radial-gradient(circle at 80% 20%, rgba(200, 173, 255, 0.16), transparent 30%),
-    radial-gradient(circle at 50% 95%, rgba(120, 100, 210, 0.22), transparent 42%),
-    linear-gradient(180deg, #101431 0%, #070a20 100%);
-  background-repeat: no-repeat;
-  opacity: 1;
-  animation: none;
-  z-index: -2;
-}
-
-/* 前に出てた横並びの記号星はいったん消す */
-.sky::before,
-.sky::after {
-  content: "";
-}
-
-/* 星アニメーション用レイヤー */
-.twinkle-layer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: -1;
-}
-
-/* JSで追加される星 */
-.twinkle-star {
-  position: absolute;
-  color: #f8df9a;
-  font-size: var(--star-size, 14px);
-  line-height: 1;
-  opacity: 0;
-  text-shadow:
-    0 0 6px rgba(248, 223, 154, 0.8),
-    0 0 14px rgba(231, 220, 255, 0.38),
-    0 0 24px rgba(160, 180, 255, 0.22);
-  animation: starBlink var(--star-duration, 3.8s) ease-in-out infinite;
-  animation-delay: var(--star-delay, 0s);
-  transform: scale(0.72) rotate(var(--star-rotate, 0deg));
-}
-
-/* チカッ……ふわ……って光る */
-@keyframes starBlink {
-  0%, 72%, 100% {
-    opacity: 0;
-    transform: scale(0.65) rotate(var(--star-rotate, 0deg));
-    filter: blur(0.2px);
-  }
-
-  78% {
-    opacity: 0.55;
-    transform: scale(0.95) rotate(var(--star-rotate, 0deg));
-  }
-
-  82% {
-    opacity: 1;
-    transform: scale(1.25) rotate(var(--star-rotate, 0deg));
-    filter: blur(0);
-  }
-
-  88% {
-    opacity: 0.35;
-    transform: scale(0.85) rotate(var(--star-rotate, 0deg));
-  }
-}
-/* ===========================
-   🌟 Twinkle stars layer fix
-   星が背景の裏に潜らないようにする
+   Base
    =========================== */
 
 body {
   position: relative;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  color: var(--text);
   background:
     radial-gradient(circle at 20% 10%, rgba(90, 96, 190, 0.42), transparent 34%),
     radial-gradient(circle at 80% 20%, rgba(200, 173, 255, 0.16), transparent 30%),
@@ -587,12 +31,16 @@ body {
     linear-gradient(180deg, #101431 0%, #070a20 100%);
 }
 
+/* ===========================
+   Background & twinkle stars
+   =========================== */
+
 .sky {
   position: fixed;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
   background: transparent;
-  z-index: 0;
 }
 
 .sky::before,
@@ -603,56 +51,10 @@ body {
 .twinkle-layer {
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  overflow: hidden;
   z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
-
-.app {
-  position: relative;
-  z-index: 1;
-}
-
-.twinkle-star {
-  position: absolute;
-  color: #ffe6a7;
-  font-size: var(--star-size, 14px);
-  line-height: 1;
-  opacity: 0;
-  text-shadow:
-    0 0 6px rgba(255, 230, 167, 0.95),
-    0 0 14px rgba(231, 220, 255, 0.55),
-    0 0 24px rgba(160, 180, 255, 0.36);
-  animation: starBlink var(--star-duration, 3.8s) ease-in-out infinite;
-  animation-delay: var(--star-delay, 0s);
-  transform: scale(0.72) rotate(var(--star-rotate, 0deg));
-}
-
-@keyframes starBlink {
-  0%, 68%, 100% {
-    opacity: 0;
-    transform: scale(0.65) rotate(var(--star-rotate, 0deg));
-  }
-
-  76% {
-    opacity: 0.75;
-    transform: scale(1) rotate(var(--star-rotate, 0deg));
-  }
-
-  80% {
-    opacity: 1;
-    transform: scale(1.35) rotate(var(--star-rotate, 0deg));
-  }
-
-  88% {
-    opacity: 0.25;
-    transform: scale(0.85) rotate(var(--star-rotate, 0deg));
-  }
-}
-/* ===========================
-   🌟 Twinkle visibility fix
-   星がちゃんと見えて、チカッと光る版
-   =========================== */
 
 .twinkle-star {
   position: absolute;
@@ -667,6 +69,616 @@ body {
   animation: starBlink var(--star-duration, 2.8s) ease-in-out infinite;
   animation-delay: var(--star-delay, 0s);
   transform: scale(0.9) rotate(var(--star-rotate, 0deg));
+}
+
+/* ===========================
+   Layout
+   =========================== */
+
+.app {
+  position: relative;
+  z-index: 1;
+  width: min(1024px, 92vw);
+  margin: 1.2rem auto 3rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+/* ===========================
+   Hero
+   =========================== */
+
+.hero {
+  position: relative;
+  padding: 2.2rem 1.4rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(20, 24, 48, 0.82), rgba(10, 12, 28, 0.9)),
+    rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  overflow: visible;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(180, 210, 255, 0.12), transparent 26%),
+    radial-gradient(circle at 80% 18%, rgba(255, 230, 180, 0.1), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(166, 130, 255, 0.13), transparent 35%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 23px;
+  pointer-events: none;
+}
+
+.app-kicker {
+  margin-bottom: 0.6rem;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  color: rgba(220, 230, 255, 0.92);
+  text-shadow: 0 0 14px rgba(180, 210, 255, 0.18);
+}
+
+.app-title {
+  margin-bottom: 0.7rem;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: #f8f6ff;
+  text-shadow:
+    0 0 32px rgba(180, 200, 255, 0.55),
+    0 0 18px rgba(160, 180, 255, 0.45),
+    0 0 8px rgba(255, 255, 255, 0.35),
+    0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.app-subtitle {
+  max-width: 38rem;
+  margin-inline: auto;
+  text-align: center;
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(238, 238, 248, 0.88);
+}
+
+/* ===========================
+   Shared panels
+   =========================== */
+
+.card-frame {
+  padding: 1rem;
+  border: 1px solid rgba(231, 220, 255, 0.28);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(30, 37, 84, 0.8), rgba(20, 26, 63, 0.88));
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+.section-title {
+  text-align: center;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.03em;
+  color: var(--lavender-2);
+  text-shadow: 0 0 6px rgba(236, 173, 255, 0.35);
+}
+
+/* ===========================
+   Draw panel & result
+   =========================== */
+
+.draw-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.draw-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.28);
+  background: linear-gradient(135deg, rgba(136, 110, 255, 0.95), rgba(94, 145, 255, 0.88));
+  box-shadow:
+    0 8px 24px rgba(98, 110, 255, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.draw-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.22) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.draw-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 14px 30px rgba(98, 110, 255, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.draw-button:hover::before {
+  transform: translateX(120%);
+}
+
+.draw-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.result {
+  align-self: stretch;
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  animation: resultAppear 0.55s ease both;
+}
+
+.result.hidden {
+  display: none !important;
+}
+
+.result__image-wrap {
+  width: min(100%, 286px);
+  max-width: 286px;
+  flex-shrink: 0;
+  margin-inline: auto;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(242, 204, 143, 0.35);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(242, 204, 143, 0.12), transparent 44%),
+    rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(236, 173, 255, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.result__image {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.34),
+    0 0 18px rgba(231, 220, 255, 0.14);
+}
+
+.result__meta {
+  width: 100%;
+  max-width: 620px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+#cardName {
+  margin: 0 0 0.7rem;
+  font-family: "Cinzel", "Shippori Mincho B1", serif;
+  font-size: clamp(1.15rem, 3vw, 1.6rem);
+  line-height: 1.35;
+  color: #fff8ff;
+  text-shadow:
+    0 0 12px rgba(236, 173, 255, 0.32),
+    0 0 24px rgba(180, 200, 255, 0.16);
+}
+
+.orientation {
+  margin: 0.25rem 0;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+}
+
+.keywords {
+  margin: 0.45rem 0;
+  font-family: "Shippori Mincho B1", serif;
+  line-height: 1.7;
+  color: var(--lavender-2);
+}
+
+.meaning {
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(231, 220, 255, 0.16);
+  font-family: "Shippori Mincho B1", serif;
+  line-height: 1.9;
+  color: rgba(244, 242, 255, 0.9);
+}
+
+/* ===========================
+   Card catalog
+   =========================== */
+
+.catalog__hint {
+  text-align: center;
+  font-family: "Shippori Mincho B1", serif;
+  letter-spacing: 0.03em;
+  color: var(--lavender-2);
+  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
+}
+
+.card-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.card-item {
+  padding: 0.45rem;
+  border: 1px solid rgba(242, 204, 143, 0.35);
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(15, 18, 46, 0.75);
+  box-shadow:
+    0 0 6px rgba(236, 173, 255, 0.25),
+    0 0 12px rgba(236, 173, 255, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-item:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 10px rgba(236, 173, 255, 0.45),
+    0 0 18px rgba(236, 173, 255, 0.35);
+}
+
+.card-item:focus-visible {
+  outline: 2px solid rgba(242, 204, 143, 0.9);
+  outline-offset: 4px;
+}
+
+.card-item__img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.08),
+    inset 0 0 20px rgba(236, 173, 255, 0.12);
+}
+
+.card-item__name {
+  min-height: 3.2em;
+  margin: 0.45rem 0 0.1rem;
+  text-align: center;
+  line-height: 1.35;
+  text-shadow: 0 0 4px rgba(236, 173, 255, 0.35);
+}
+
+.card-item__name-en,
+.card-item__name-ja {
+  display: block;
+}
+
+.card-item__name-en {
+  font-family: "Cinzel", serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.03em;
+  color: var(--lavender-2);
+}
+
+.card-item__name-ja {
+  margin-top: 0.12rem;
+  font-family: "Shippori Mincho B1", serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: rgba(244, 242, 255, 0.82);
+}
+
+/* ===========================
+   Card modal
+   =========================== */
+
+.card-modal {
+  width: min(920px, 92vw);
+  max-height: 88dvh;
+  padding: 0;
+  border: 1px solid rgba(231, 220, 255, 0.28);
+  border-radius: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(180, 200, 255, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(20, 24, 48, 0.96), rgba(8, 10, 28, 0.98));
+  box-shadow:
+    0 22px 80px rgba(0, 0, 0, 0.58),
+    0 0 42px rgba(236, 173, 255, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+}
+
+.card-modal::backdrop {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(120, 100, 210, 0.22), transparent 42%),
+    rgba(3, 5, 18, 0.76);
+  backdrop-filter: blur(5px);
+}
+
+.card-modal__inner {
+  position: relative;
+  min-height: 0;
+  display: grid;
+  gap: 1.3rem;
+  padding: clamp(1rem, 3vw, 1.6rem);
+}
+
+.card-modal__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
+  width: auto;
+  min-width: 5.2rem;
+  height: 2.25rem;
+  padding: 0 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: #fff8ff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 16px rgba(236, 173, 255, 0.14);
+}
+
+.card-modal__image-wrap {
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(242, 204, 143, 0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(242, 204, 143, 0.12), transparent 45%),
+    rgba(255, 255, 255, 0.045);
+}
+
+.card-modal__image {
+  width: min(100%, 280px);
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.42),
+    0 0 24px rgba(231, 220, 255, 0.16);
+}
+
+.card-modal__text {
+  font-family: "Shippori Mincho B1", serif;
+  line-height: 1.8;
+}
+
+.card-modal__number {
+  margin: 0 0 0.2rem;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.card-modal__name {
+  margin: 0 2.4rem 1rem 0;
+  font-family: "Cinzel", "Shippori Mincho B1", serif;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  color: #fff8ff;
+  text-shadow:
+    0 0 14px rgba(236, 173, 255, 0.34),
+    0 0 26px rgba(180, 200, 255, 0.18);
+}
+
+.card-modal__section {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(231, 220, 255, 0.15);
+}
+
+.card-modal__section h4 {
+  margin: 0 0 0.3rem;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.06em;
+  color: var(--lavender-2);
+}
+
+.card-modal__keywords {
+  margin: 0.2rem 0;
+  color: var(--gold);
+}
+
+.card-modal__meaning {
+  margin: 0.35rem 0 0;
+  color: rgba(244, 242, 255, 0.9);
+}
+
+.card-modal[open] {
+  animation: modalAppear 0.28s ease both;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+
+@media (min-width: 760px) {
+  .result {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .result__image-wrap {
+    margin-inline: 0;
+  }
+
+  .result__meta {
+    flex: 1 1 auto;
+    max-width: 600px;
+    margin-inline: 0;
+  }
+
+  .card-modal__inner {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 520px) {
+  .app {
+    width: min(94vw, 1024px);
+    margin-top: 0.8rem;
+    gap: 1rem;
+  }
+
+  .hero {
+    padding: 1.7rem 1rem 1.6rem;
+    border-radius: 20px;
+  }
+
+  .app-title {
+    font-size: clamp(1.85rem, 10vw, 2.45rem);
+  }
+
+  .app-subtitle {
+    font-size: 0.94rem;
+    line-height: 1.8;
+  }
+
+  .card-frame {
+    padding: 0.85rem;
+    border-radius: 16px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .draw-button {
+    width: 100%;
+    max-width: 18rem;
+  }
+
+  .result {
+    align-items: center;
+  }
+
+  .result__meta {
+    text-align: left;
+  }
+
+  .card-modal {
+    width: min(94vw, 420px);
+    max-height: 86dvh;
+    border-radius: 20px;
+  }
+
+  .card-modal__inner {
+    display: block;
+    padding: 1rem 1rem 1.4rem;
+  }
+
+  .card-modal__close {
+    position: sticky;
+    top: 0.65rem;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-modal__image-wrap {
+    margin-top: 0.5rem;
+    padding: 0.65rem;
+  }
+
+  .card-modal__image {
+    width: min(100%, 220px);
+  }
+
+  .card-modal__text {
+    margin-top: 1rem;
+  }
+
+  .card-modal__name {
+    margin-right: 0;
+    font-size: 1.35rem;
+  }
+}
+
+/* ===========================
+   Animations
+   =========================== */
+
+@keyframes resultAppear {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes starBlink {
@@ -689,248 +701,4 @@ body {
     opacity: 0.42;
     transform: scale(1) rotate(var(--star-rotate, 0deg));
   }
-}
-/* ===========================
-   🪞 Card catalog modal
-   カード一覧クリック時の図鑑ビュー
-   =========================== */
-
-.card-item {
-  cursor: pointer;
-}
-
-.card-item:focus-visible {
-  outline: 2px solid rgba(242, 204, 143, 0.9);
-  outline-offset: 4px;
-}
-
-.card-modal {
-  width: min(920px, 92vw);
-  max-height: 88vh;
-  padding: 0;
-  border: 1px solid rgba(231, 220, 255, 0.28);
-  border-radius: 24px;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(180, 200, 255, 0.16), transparent 34%),
-    linear-gradient(180deg, rgba(20, 24, 48, 0.96), rgba(8, 10, 28, 0.98));
-  color: var(--text);
-  box-shadow:
-    0 22px 80px rgba(0, 0, 0, 0.58),
-    0 0 42px rgba(236, 173, 255, 0.16),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.045);
-  overflow: hidden;
-}
-
-.card-modal::backdrop {
-  background:
-    radial-gradient(circle at 50% 40%, rgba(120, 100, 210, 0.22), transparent 42%),
-    rgba(3, 5, 18, 0.76);
-  backdrop-filter: blur(5px);
-}
-
-.card-modal__inner {
-  position: relative;
-  display: grid;
-  gap: 1.3rem;
-  padding: clamp(1rem, 3vw, 1.6rem);
-}
-
-.card-modal__close {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  z-index: 2;
-  width: 2.25rem;
-  height: 2.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff8ff;
-  cursor: pointer;
-  box-shadow: 0 0 16px rgba(236, 173, 255, 0.14);
-}
-
-.card-modal__image-wrap {
-  display: flex;
-  justify-content: center;
-  padding: 0.8rem;
-  border-radius: 18px;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(242, 204, 143, 0.12), transparent 45%),
-    rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(242, 204, 143, 0.28);
-}
-
-.card-modal__image {
-  width: min(100%, 280px);
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow:
-    0 14px 36px rgba(0, 0, 0, 0.42),
-    0 0 24px rgba(231, 220, 255, 0.16);
-}
-
-.card-modal__text {
-  font-family: "Shippori Mincho B1", serif;
-  line-height: 1.8;
-}
-
-.card-modal__number {
-  margin: 0 0 0.2rem;
-  font-family: "Cinzel", serif;
-  color: var(--gold);
-  letter-spacing: 0.08em;
-}
-
-.card-modal__name {
-  margin: 0 2.4rem 1rem 0;
-  font-family: "Cinzel", "Shippori Mincho B1", serif;
-  font-size: clamp(1.35rem, 4vw, 2rem);
-  color: #fff8ff;
-  text-shadow:
-    0 0 14px rgba(236, 173, 255, 0.34),
-    0 0 26px rgba(180, 200, 255, 0.18);
-}
-
-.card-modal__section {
-  margin-top: 1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid rgba(231, 220, 255, 0.15);
-}
-
-.card-modal__section h4 {
-  margin: 0 0 0.3rem;
-  font-family: "Cinzel", serif;
-  color: var(--lavender-2);
-  letter-spacing: 0.06em;
-}
-
-.card-modal__keywords {
-  margin: 0.2rem 0;
-  color: var(--gold);
-}
-
-.card-modal__meaning {
-  margin: 0.35rem 0 0;
-  color: rgba(244, 242, 255, 0.9);
-}
-
-.card-modal[open] {
-  animation: modalAppear 0.28s ease both;
-}
-
-@keyframes modalAppear {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.98);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (min-width: 760px) {
-  .card-modal__inner {
-    grid-template-columns: 320px 1fr;
-    align-items: start;
-  }
-}
-.card-item__name {
-  margin: 0.45rem 0 0.1rem;
-  text-align: center;
-  line-height: 1.35;
-  min-height: 3.2em; /* 高さを少し確保してガタつき防止 */
-}
-
-.card-item__name-en,
-.card-item__name-ja {
-  display: block;
-}
-
-.card-item__name-en {
-  font-size: 0.88rem;
-  font-family: "Cinzel", serif;
-  color: var(--lavender-2);
-  letter-spacing: 0.03em;
-}
-
-.card-item__name-ja {
-  margin-top: 0.15rem;
-  font-size: 0.82rem;
-  font-family: "Shippori Mincho B1", serif;
-  color: rgba(244, 242, 255, 0.82);
-}
-/* ===========================
-   📱 Mobile modal scroll fix
-   スマホでカード詳細を最後まで読めるようにする
-   =========================== */
-
-.card-modal {
-  max-height: 88dvh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-}
-
-.card-modal__inner {
-  min-height: 0;
-}
-
-/* スマホでは縦スクロール前提の読みやすい形にする */
-@media (max-width: 520px) {
-  .card-modal {
-    width: min(94vw, 420px);
-    max-height: 86dvh;
-    border-radius: 20px;
-  }
-
-  .card-modal__inner {
-    display: block;
-    padding: 1rem;
-    padding-bottom: 1.4rem;
-  }
-
-  .card-modal__close {
-    position: sticky;
-    top: 0.65rem;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .card-modal__image-wrap {
-    margin-top: 0.5rem;
-    padding: 0.65rem;
-  }
-
-  .card-modal__image {
-    width: min(100%, 220px);
-  }
-
-  .card-modal__name {
-    margin-right: 0;
-    font-size: 1.35rem;
-  }
-
-  .card-modal__text {
-    margin-top: 1rem;
-  }
-}
-/* ===========================
-   ✦ Close button polish
-   =========================== */
-
-.card-modal__close {
-  width: auto;
-  min-width: 5.2rem;
-  padding: 0 0.85rem;
-  font-family: "Cinzel", serif;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
 }
