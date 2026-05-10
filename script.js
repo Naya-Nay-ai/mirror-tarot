@@ -84,6 +84,28 @@ function drawOneCard() {
   revealResult();
 }
 
+function resetDrawState() {
+  elements.result.classList.add('hidden');
+  elements.result.classList.remove('is-revealing');
+
+  elements.deckPreview.classList.remove('is-hidden');
+  elements.drawButton.classList.remove('is-hidden');
+
+  elements.cardImage.removeAttribute('src');
+  elements.cardImage.alt = '';
+  elements.cardImage.style.transform = 'none';
+
+  elements.cardName.textContent = '';
+  elements.cardOrientation.textContent = '';
+  elements.cardKeywords.textContent = '';
+  elements.cardMeaning.textContent = '';
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
 /* ===========================
    Card catalog modal
    =========================== */
