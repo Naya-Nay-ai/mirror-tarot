@@ -68,7 +68,7 @@ function drawOneCard() {
   elements.cardOrientation.textContent = orientation;
   elements.cardKeywords.textContent = `Keywords: ${keywords.join(' / ')}`;
   elements.cardMeaning.textContent = meaning;
-
+  elements.deckPreview.classList.add('is-hidden');
   elements.result.classList.remove('hidden');
 }
 
