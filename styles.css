@@ -390,6 +390,33 @@ body {
   color: var(--lavender-2);
 }
 
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: rgba(231, 220, 255, 0.82);
+  text-decoration: none;
+  text-shadow:
+    0 0 8px rgba(180, 200, 255, 0.22),
+    0 0 16px rgba(236, 173, 255, 0.14);
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.back-to-top:hover {
+  color: #fff8ff;
+  transform: translateY(-1px);
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.55),
+    0 0 20px rgba(236, 173, 255, 0.3);
+}
+
 .meaning {
   margin-top: 0.8rem;
   padding-top: 0.8rem;
