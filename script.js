@@ -50,6 +50,18 @@ function getCardCatalogName(card) {
    One card draw
    =========================== */
 
+function revealResult() {
+  elements.deckPreview.classList.add('is-hidden');
+  elements.drawButton.classList.add('is-hidden');
+
+  elements.result.classList.remove('hidden');
+  elements.result.classList.remove('is-revealing');
+
+  void elements.result.offsetWidth;
+
+  elements.result.classList.add('is-revealing');
+}
+
 function drawOneCard() {
   if (!cards.length) return;
 
@@ -68,8 +80,9 @@ function drawOneCard() {
   elements.cardOrientation.textContent = orientation;
   elements.cardKeywords.textContent = `Keywords: ${keywords.join(' / ')}`;
   elements.cardMeaning.textContent = meaning;
-  elements.deckPreview.classList.add('is-hidden');
-  elements.result.classList.remove('hidden');
+
+  
+  revealResult();
 }
 
 /* ===========================
