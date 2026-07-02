@@ -900,3 +900,49 @@ body {
     display: block;
   }
 }
+/* ===========================
+   App Footer / Copyright
+=========================== */
+
+.app-footer {
+  margin-top: 0.8rem;
+  padding: 1.15rem 1rem 1.35rem;
+  text-align: center;
+  border-top: 1px solid rgba(231, 220, 255, 0.18);
+  color: rgba(244, 242, 255, 0.72);
+}
+
+.app-footer__brand {
+  margin-bottom: 0.35rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  color: rgba(242, 204, 143, 0.9);
+  text-shadow:
+    0 0 10px rgba(242, 204, 143, 0.22),
+    0 0 18px rgba(236, 173, 255, 0.12);
+}
+
+.app-footer__copy {
+  font-family: "Cinzel", "Shippori Mincho B1", serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  color: rgba(231, 220, 255, 0.7);
+}
+
+@media (max-width: 520px) {
+  .app-footer {
+    padding: 1rem 0.6rem 1.2rem;
+  }
+
+  .app-footer__brand {
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+  }
+
+  .app-footer__copy {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+}
