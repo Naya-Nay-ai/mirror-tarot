@@ -946,3 +946,8 @@ body {
     letter-spacing: 0.05em;
   }
 }
+.app-footer--catalog {
+  margin-top: 1.25rem;
+  padding: 1rem 0 0.15rem;
+  border-top: 1px solid rgba(231, 220, 255, 0.16);
+}
